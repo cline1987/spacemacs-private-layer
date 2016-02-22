@@ -1,7 +1,7 @@
-#+TITLE: %LAYER_NAME% layer
-#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../css/readtheorg.css" />
+#+TITLE: delin layer
+# #+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../css/readtheorg.css" />
 
-#+CAPTION: logo
+# #+CAPTION: logo
 
 # The maximum height of the logo should be 200 pixels.
 [[img/%LAYER_NAME%.png]]
@@ -19,11 +19,12 @@ This layer does wonderful things:
 To use this contribution add it to your =~/.spacemacs=
 
 #+begin_src emacs-lisp
-  (setq-default dotspacemacs-configuration-layers '(%LAYER_NAME%))
+  (setq-default dotspacemacs-configuration-layers '(delin))
 #+end_src
 
 * Key bindings
 
-| Key Binding     | Description    |
-|-----------------+----------------|
-| ~<SPC> x x x~   | Does thing01   |
+| Key Binding   | Description  |
+|---------------+--------------|
+| ~<SPC> x x x~ | Does thing01 |
+|               |              |
