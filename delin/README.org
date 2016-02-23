@@ -1,10 +1,10 @@
 #+TITLE: delin layer
-# #+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../css/readtheorg.css" />
+#+HTML_HEAD_EXTRA: <link rel="stylesheet" type="text/css" href="../css/readtheorg.css" />
 
-# #+CAPTION: logo
+#+CAPTION: logo
 
 # The maximum height of the logo should be 200 pixels.
-[[img/%LAYER_NAME%.png]]
+[[./img/delin.jpg]]
 
 * Table of Contents                                        :TOC_4_org:noexport:
  - [[Decsription][Description]]
