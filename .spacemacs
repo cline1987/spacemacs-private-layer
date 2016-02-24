@@ -259,6 +259,10 @@ layers configuration. You are free to put any user code."
   (when (fboundp 'global-prettify-symbols-mode)
     (global-prettify-symbols-mode))
   (put 'suspend-frame 'disabled t)
+  (setq frame-title-format
+        '((:eval (if (buffer-file-name)
+                     (abbreviate-file-name (buffer-file-name))
+                   "%b"))))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
