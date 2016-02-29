@@ -99,6 +99,7 @@
   (use-package multiple-cursors
     :init
     (which-key-declare-prefixes "C-c c" "multiple-cursors")
+    (setq mc/list-file (expand-file-name ".mc-lists.el" delin-layer-directory))
     :bind (("<S-mouse-3>" . mc/add-cursor-on-click)
            ("C-<" . mc/mark-previous-like-this)
            ("C->" . mc/mark-next-like-this)

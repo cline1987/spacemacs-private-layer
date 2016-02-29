@@ -30,3 +30,6 @@
                             ("M-D" . sp-splice-sexp)
                             ("M-F" . sp-forward-symbol)
                             ("M-B" . sp-backward-symbol)))
+
+(defvar delin-layer-directory (file-name-directory load-file-name)
+  "Directory of layer \"DELIN\".")
