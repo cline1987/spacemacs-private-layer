@@ -35,6 +35,7 @@
     browse-kill-ring
     god-mode
     key-chord
+    latex-preview-pane
     multiple-cursors
     move-dup
     sequential-command
@@ -70,6 +71,13 @@
     (global-set-key (kbd "<f9>") 'god-local-mode)
     (with-eval-after-load 'key-chord
       (key-chord-define-global ",." 'god-local-mode))
+    ))
+
+(defun delin/init-latex-preview-pane ()
+  (use-package latex-preview-pane
+    :defer t
+    :init
+    (spacemacs/set-leader-keys "xp" 'latex-preview-pane-mode)
     ))
 
 (defun delin/init-move-dup ()

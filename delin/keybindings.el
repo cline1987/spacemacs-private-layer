@@ -44,3 +44,5 @@
                 (lambda ()
                   (interactive)
                   (sublimity-scroll-other--vscroll-effect 20)))
+
+(global-set-key (kbd "s-j") 'join-line)
