@@ -33,11 +33,12 @@
   '(
     avy
     browse-kill-ring
+    exec-path-from-shell
     god-mode
     key-chord
     latex-preview-pane
-    multiple-cursors
     move-dup
+    multiple-cursors
     sequential-command
     smartparens
     ))
@@ -63,6 +64,9 @@
       (add-hook 'popwin:after-popup-hook 'popwin-bkr:update-window-reference)
       (push "*Kill Ring*" popwin:special-display-config))
     ))
+
+(defun delin/pre-init-exec-path-from-shell ()
+  (setq exec-path-from-shell-arguments (list "-l")))
 
 (defun delin/init-god-mode ()
   (use-package god-mode
