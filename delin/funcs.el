@@ -36,25 +36,25 @@ With arg N, insert N newlines."
     (end-of-line)
     (indent-according-to-mode)))
 
-(defun delin//open-line-with-reindent-anywhere (n)
-  "Move the point at beginning of current line and insert newline
-with indentation below it."
-  (interactive "*p")
-  (move-beginning-of-line 1)
-  (sanityinc/open-line-with-reindent n))
+;; (defun delin//open-line-with-reindent-anywhere (n)
+;;   "Move the point at beginning of current line and insert newline
+;; with indentation below it."
+;;   (interactive "*p")
+;;   (move-beginning-of-line 1)
+;;   (sanityinc/open-line-with-reindent n))
 
-(defun delin//newline-and-indent-anywhere ()
-  "Move the point at end of current line and insert a new line with indentation."
-  (interactive)
-  (move-end-of-line 1)
-  (newline-and-indent))
+;; (defun delin//newline-and-indent-anywhere ()
+;;   "Move the point at end of current line and insert a new line with indentation."
+;;   (interactive)
+;;   (move-end-of-line 1)
+;;   (newline-and-indent))
 
-(defun delin//open-line-anywhere (n)
-  "Move the point at beginning of current line and insert newline
-without indentation below it."
-  (interactive "*p")
-  (move-beginning-of-line 1)
-  (open-line n))
+;; (defun delin//open-line-anywhere (n)
+;;   "Move the point at beginning of current line and insert newline
+;; without indentation below it."
+;;   (interactive "*p")
+;;   (move-beginning-of-line 1)
+;;   (open-line n))
 
 (defun kill-back-to-indentation ()
   "Kill from point back to the first non-whitespace character on the line."
@@ -112,3 +112,23 @@ without indentation below it."
       (scroll-other-window-down speed)
       (force-window-update (selected-window))
       (redisplay))))
+
+(defun xah-unfill-paragraph ()
+  "Replace newline chars in current paragraph by single spaces.
+This command does the inverse of `fill-paragraph'.
+
+URL `http://ergoemacs.org/emacs/emacs_unfill-paragraph.html'
+Version 2016-07-13"
+  (interactive)
+  (let ((fill-column most-positive-fixnum))
+    (fill-paragraph)))
+
+(defun xah-unfill-region (start end)
+  "Replace newline chars in region by single spaces.
+This command does the inverse of `fill-region'.
+
+URL `http://ergoemacs.org/emacs/emacs_unfill-paragraph.html'
+Version 2016-07-13"
+  (interactive "r")
+  (let ((fill-column most-positive-fixnum))
+    (fill-region start end)))

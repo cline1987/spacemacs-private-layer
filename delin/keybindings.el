@@ -9,16 +9,17 @@
 ;;
 ;;; License: GPLv3
 
-(global-set-key (kbd "S-<return>") 'delin//newline-and-indent-anywhere)
+;; (global-set-key (kbd "S-<return>") 'delin//newline-and-indent-anywhere)
 
-(global-set-key (kbd "s-o") 'sanityinc/open-line-with-reindent)
-(global-set-key (kbd "s-O") 'delin//open-line-with-reindent-anywhere)
-
-(global-set-key (kbd "C-S-o") 'delin//open-line-anywhere)
+(global-set-key (kbd "C-o") 'sanityinc/open-line-with-reindent)
+(global-set-key (kbd "C-S-o") 'open-line)
+;; (global-set-key (kbd "s-O") 'delin//open-line-with-reindent-anywhere)
+;; (global-set-key (kbd "C-S-o") 'delin//open-line-anywhere)
 
 (global-set-key (kbd "S-M-<backspace>") 'kill-back-to-indentation)
 
-(spacemacs/set-leader-keys "xll" 'mark-line)
+(spacemacs/set-leader-keys "xlm" 'mark-line)
+(spacemacs/set-leader-keys "xlj" 'join-line)
 
 (global-set-key (kbd "C-x C-m") 'execute-extended-command)
 
@@ -45,4 +46,4 @@
                   (interactive)
                   (sublimity-scroll-other--vscroll-effect 20)))
 
-(global-set-key (kbd "s-j") 'join-line)
+;; (global-set-key (kbd "s-j") 'join-line)
