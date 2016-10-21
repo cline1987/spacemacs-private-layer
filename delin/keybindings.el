@@ -9,23 +9,31 @@
 ;;
 ;;; License: GPLv3
 
-;; (global-set-key (kbd "S-<return>") 'delin//newline-and-indent-anywhere)
-
+;; open lines
 (global-set-key (kbd "C-o") 'sanityinc/open-line-with-reindent)
 (global-set-key (kbd "C-S-o") 'open-line)
-;; (global-set-key (kbd "s-O") 'delin//open-line-with-reindent-anywhere)
-;; (global-set-key (kbd "C-S-o") 'delin//open-line-anywhere)
 
+;; unfill
+(global-set-key (kbd "M-S-q") 'xah-unfill-region)
+
+;; kill back to indentation
 (global-set-key (kbd "S-M-<backspace>") 'kill-back-to-indentation)
 
+;; avy goto word
+(spacemacs/set-leader-keys "SPC" 'avy-goto-word-1)
+
+;; mark/join lines
 (spacemacs/set-leader-keys "xlm" 'mark-line)
 (spacemacs/set-leader-keys "xlj" 'join-line)
 
-(global-set-key (kbd "C-x C-m") 'execute-extended-command)
-
+;; isearch
 (define-key isearch-mode-map (kbd "C-o") 'isearch-occur)
 (define-key isearch-mode-map [remap isearch-delete-char] 'isearch-del-char)
 
+;; misc
+(global-set-key (kbd "C-x C-m") 'execute-extended-command)
+
+;; scrolling
 (global-set-key (kbd "M-n")
                 (lambda ()
                   (interactive)
@@ -45,5 +53,3 @@
                 (lambda ()
                   (interactive)
                   (sublimity-scroll-other--vscroll-effect 20)))
-
-;; (global-set-key (kbd "s-j") 'join-line)
