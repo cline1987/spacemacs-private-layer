@@ -36,7 +36,6 @@
     exec-path-from-shell
     god-mode
     key-chord
-    ;; latex-preview-pane
     move-dup
     multiple-cursors
     sequential-command
@@ -79,13 +78,6 @@
     (with-eval-after-load 'key-chord
       (key-chord-define-global ",." 'god-local-mode))
     ))
-
-;; (defun delin/init-latex-preview-pane ()
-;;   (use-package latex-preview-pane
-;;     :defer t
-;;     :init
-;;     (spacemacs/set-leader-keys "xp" 'latex-preview-pane-mode)
-;;     ))
 
 (defun delin/init-move-dup ()
   (use-package move-dup
