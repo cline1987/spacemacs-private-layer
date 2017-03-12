@@ -37,19 +37,19 @@
 (global-set-key (kbd "M-n")
                 (lambda ()
                   (interactive)
-                  (sublimity-scroll--vscroll-effect -30)))
+                  (sublimity-scroll--vscroll-effect -20)))
 
 (global-set-key (kbd "M-p")
                 (lambda ()
                   (interactive)
-                  (sublimity-scroll--vscroll-effect 30)))
+                  (sublimity-scroll--vscroll-effect 20)))
 
 (global-set-key (kbd "M-N")
                 (lambda ()
                   (interactive)
-                  (sublimity-scroll-other--vscroll-effect -30)))
+                  (sublimity-scroll-other--vscroll-effect -20)))
 
 (global-set-key (kbd "M-P")
                 (lambda ()
                   (interactive)
-                  (sublimity-scroll-other--vscroll-effect 30)))
+                  (sublimity-scroll-other--vscroll-effect 20)))
