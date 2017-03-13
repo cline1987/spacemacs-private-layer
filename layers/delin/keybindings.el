@@ -31,7 +31,7 @@
 (define-key isearch-mode-map [remap isearch-delete-char] 'isearch-del-char)
 
 ;; misc
-(global-set-key (kbd "C-x C-m") 'execute-extended-command)
+;; (global-set-key (kbd "C-x C-m") 'execute-extended-command)
 
 ;; scrolling
 (global-set-key (kbd "M-n")

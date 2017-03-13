@@ -52,10 +52,11 @@
 
 (defun delin/init-browse-kill-ring ()
   (use-package browse-kill-ring
-    :bind ("s-y" . browse-kill-ring)
+    :bind (("s-y" . browse-kill-ring)
+           :map browse-kill-ring-mode-map
+           ("M-n" . browse-kill-ring-forward)
+           ("M-p" . browse-kill-ring-previous))
     :config
-    (define-key browse-kill-ring-mode-map (kbd "M-n") 'browse-kill-ring-forward)
-    (define-key browse-kill-ring-mode-map (kbd "M-p") 'browse-kill-ring-previous)
     ;; integrate `popwin' with `browse-kill-ring'
     (with-eval-after-load 'popwin
       (defun popwin-bkr:update-window-reference ()
@@ -72,9 +73,9 @@
 
 (defun delin/init-god-mode ()
   (use-package god-mode
-    :commands (god-local-mode god-mode-all)
+    :commands (god-mode-all god-local-mode)
+    :bind (("<f9>" . god-local-mode))
     :init
-    (global-set-key (kbd "<f9>") 'god-local-mode)
     (with-eval-after-load 'key-chord
       (key-chord-define-global ",." 'god-local-mode))
     ))
