@@ -36,7 +36,8 @@ values."
      ;; Uncomment some layer names and press <SPC f e R> (Vim style) or
      ;; <M-m f e R> (Emacs style) to install them.
      ;; ----------------------------------------------------------------
-     ivy
+     ;; ivy
+     helm
      auto-completion
      better-defaults
      ;; clojure
@@ -138,12 +139,12 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
-                         zenburn
-                         dracula
                          spacemacs-dark
                          spacemacs-light
                          solarized-dark
                          solarized-light
+                         zenburn
+                         dracula
                          monokai
                          )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
@@ -324,7 +325,9 @@ you should place your code here."
         '((:eval (if (buffer-file-name)
                      (abbreviate-file-name (buffer-file-name))
                    "%b"))))
-  (setq-default scroll-preserve-screen-position 'always)
+  (setq-default scroll-preserve-screen-position 't)
+  (setq-default python-indent-offset '4)
+  (setq-default python-indent-guess-indent-offset 'nil)
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
