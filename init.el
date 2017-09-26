@@ -41,6 +41,7 @@ values."
      auto-completion
      better-defaults
      ;; clojure
+     colors
      ;; common-lisp
      dash
      emacs-lisp
@@ -321,6 +322,7 @@ you should place your code here."
   (when (fboundp 'global-prettify-symbols-mode)
     (global-prettify-symbols-mode))
   (put 'suspend-frame 'disabled t)
+  (global-linum-mode t)
   (setq frame-title-format
         '((:eval (if (buffer-file-name)
                      (abbreviate-file-name (buffer-file-name))
@@ -328,6 +330,7 @@ you should place your code here."
   (setq-default scroll-preserve-screen-position 't)
   (setq-default python-indent-offset '4)
   (setq-default python-indent-guess-indent-offset 'nil)
+  (setq-default hl-paren-colors '("#b58900" "#d33682" "#859900" "#2aa198" "#268bd2" "#6c71c4"))
   )
 
 ;; Do not write anything past this comment. This is where Emacs will
