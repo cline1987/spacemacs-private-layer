@@ -47,12 +47,13 @@
     (setq avy-keys (number-sequence ?a ?z)
           avy-background t
           avy-all-windows t
-          avy-style 'at)
+          avy-style 'at-full)
     ))
 
 (defun delin/init-browse-kill-ring ()
   (use-package browse-kill-ring
-    :bind (("s-y" . browse-kill-ring)
+    :bind (("M-y" . browse-kill-ring)
+           ("s-y" . yank-pop)
            :map browse-kill-ring-mode-map
            ("M-n" . browse-kill-ring-forward)
            ("M-p" . browse-kill-ring-previous))

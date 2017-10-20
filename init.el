@@ -140,13 +140,13 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
-                         spacemacs-dark
-                         spacemacs-light
-                         solarized-dark
+                         ;; spacemacs-dark
+                         ;; spacemacs-light
                          solarized-light
-                         zenburn
-                         dracula
-                         monokai
+                         solarized-dark
+                         ;; zenburn
+                         ;; dracula
+                         ;; monokai
                          )
    ;; If non nil the cursor color matches the state color in GUI Emacs.
    dotspacemacs-colorize-cursor-according-to-state t
@@ -319,6 +319,7 @@ layers configuration.
 This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
+  (require 'helm-bookmark)
   (when (fboundp 'global-prettify-symbols-mode)
     (global-prettify-symbols-mode))
   (put 'suspend-frame 'disabled t)
