@@ -84,8 +84,10 @@
 
 (defun delin/post-init-company ()
   (with-eval-after-load 'company
+    (setq company-idle-delay 0.1)
     (define-key company-active-map (kbd "TAB") 'company-complete-common)
     (define-key company-active-map [tab] 'company-complete-common)
+    (define-key company-active-map (kbd "M-j") 'company-abort)
     ))
 
 (defun delin/init-move-dup ()

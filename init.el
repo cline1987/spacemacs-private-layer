@@ -38,7 +38,9 @@ values."
      ;; ----------------------------------------------------------------
      ;; ivy
      helm
-     auto-completion
+     (auto-completion :variables
+                      auto-completion-complete-with-key-sequence "jk"
+                      auto-completion-complete-with-key-sequence-delay 0.1)
      better-defaults
      ;; clojure
      colors
