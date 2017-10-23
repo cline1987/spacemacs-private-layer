@@ -33,6 +33,7 @@
   '(
     avy
     browse-kill-ring
+    company
     exec-path-from-shell
     god-mode
     key-chord
@@ -79,6 +80,12 @@
     :init
     (with-eval-after-load 'key-chord
       (key-chord-define-global ",." 'god-local-mode))
+    ))
+
+(defun delin/post-init-company ()
+  (with-eval-after-load 'company
+    (define-key company-active-map (kbd "TAB") 'company-complete-common)
+    (define-key company-active-map [tab] 'company-complete-common)
     ))
 
 (defun delin/init-move-dup ()
