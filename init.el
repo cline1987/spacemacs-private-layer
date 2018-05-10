@@ -39,14 +39,16 @@ values."
      ;; ivy
      helm
      (auto-completion :variables
-                      auto-completion-complete-with-key-sequence "jk"
-                      auto-completion-complete-with-key-sequence-delay 0.1)
+                      auto-completion-enable-help-tooltip 'manual
+                      auto-completion-enable-sort-by-usage t)
      better-defaults
      ;; clojure
      colors
      ;; common-lisp
-     dash
+     ;; dash
      emacs-lisp
+     (extra-langs :variables
+                  matlab-mode)
      ;; git
      ;; html
      ibuffer
@@ -55,13 +57,14 @@ values."
      markdown
      ;; org
      python
-     (shell :variables
-            shell-default-height 30
-            shell-default-position 'bottom)
-     shell-scripts
+     ;; (shell :variables
+     ;;        shell-default-height 30
+     ;;        shell-default-position 'bottom)
+     ;; shell-scripts
      sql
      spell-checking
      syntax-checking
+     themes-megapack
      ;; version-control
      delin
      )
@@ -73,7 +76,7 @@ values."
    ;; A list of packages that cannot be updated.
    dotspacemacs-frozen-packages '()
    ;; A list of packages that will not be installed and loaded.
-   dotspacemacs-excluded-packages '()
+   dotspacemacs-excluded-packages '(org-projectile)
    ;; Defines the behaviour of Spacemacs when installing packages.
    ;; Possible values are `used-only', `used-but-keep-unused' and `all'.
    ;; `used-only' installs only explicitly used packages and uninstall any
@@ -98,7 +101,7 @@ values."
    ;; This variable has no effect if Emacs is launched with the parameter
    ;; `--insecure' which forces the value of this variable to nil.
    ;; (default t)
-   dotspacemacs-elpa-https nil
+   dotspacemacs-elpa-https t
    ;; Maximum allowed time in seconds to contact an ELPA repository.
    dotspacemacs-elpa-timeout 5
    ;; If non nil then spacemacs will check for updates at startup
@@ -142,11 +145,11 @@ values."
    ;; Press <SPC> T n to cycle to the next theme in the list (works great
    ;; with 2 themes variants, one dark and one light)
    dotspacemacs-themes '(
-                         ;; spacemacs-dark
-                         ;; spacemacs-light
+                         zenburn
+                         spacemacs-light
+                         spacemacs-dark
                          solarized-light
                          solarized-dark
-                         ;; zenburn
                          ;; dracula
                          ;; monokai
                          )
@@ -154,7 +157,7 @@ values."
    dotspacemacs-colorize-cursor-according-to-state t
    ;; Default font, or prioritized list of fonts. `powerline-scale' allows to
    ;; quickly tweak the mode-line size to make separators look not too crappy.
-   dotspacemacs-default-font '("Monaco"
+   dotspacemacs-default-font '("Source Code Pro"
                                :size 13
                                :weight normal
                                :width normal
@@ -322,10 +325,10 @@ This is the place where most of your configurations should be done. Unless it is
 explicitly specified that a variable should be set before a package is loaded,
 you should place your code here."
   (require 'helm-bookmark)
+  (key-chord-mode 1)
   (when (fboundp 'global-prettify-symbols-mode)
     (global-prettify-symbols-mode))
   (put 'suspend-frame 'disabled t)
-  (global-linum-mode t)
   (setq frame-title-format
         '((:eval (if (buffer-file-name)
                      (abbreviate-file-name (buffer-file-name))

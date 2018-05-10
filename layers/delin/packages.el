@@ -37,6 +37,7 @@
     exec-path-from-shell
     god-mode
     key-chord
+    matlab-mode
     move-dup
     multiple-cursors
     sequential-command
@@ -67,8 +68,17 @@
       (push "*Kill Ring*" popwin:special-display-config))
     ))
 
+(defun delin/post-init-company ()
+  (with-eval-after-load 'company
+    (setq company-idle-delay 0.1)
+    (define-key company-active-map (kbd "TAB") 'company-complete-common)
+    (define-key company-active-map [tab] 'company-complete-common)
+    (define-key company-active-map (kbd "M-j") 'company-abort)
+    ))
+
 (defun delin/pre-init-exec-path-from-shell ()
   (setq exec-path-from-shell-arguments (list "-l")))
+
 (defun delin/post-init-exec-path-from-shell ()
   (when (memq window-system '(nil))
     (exec-path-from-shell-initialize)))
@@ -82,13 +92,33 @@
       (key-chord-define-global ",." 'god-local-mode))
     ))
 
-(defun delin/post-init-company ()
-  (with-eval-after-load 'company
-    (setq company-idle-delay 0.1)
-    (define-key company-active-map (kbd "TAB") 'company-complete-common)
-    (define-key company-active-map [tab] 'company-complete-common)
-    (define-key company-active-map (kbd "M-j") 'company-abort)
+(defun delin/init-key-chord ()
+  (use-package key-chord
+    :defer t
+    :init
+    (setq key-chord-one-key-delay '0.2
+          key-chord-two-keys-delay '0.1)
+    (spacemacs/set-leader-keys "tk" 'key-chord-mode)
+    :config
+    (key-chord-define-global (kbd ",,") 'avy-goto-word-or-subword-1)
     ))
+
+(defun delin/post-init-matlab-mode ()
+  (add-hook 'matlab-mode-hook
+            ;; `highlight-numbers-mode' breaks MATLAB comment coloring --
+            ;; `highlight-numbers-mode' is mostly redundant with
+            ;; `rainbow-identifiers-mode' anyway
+            (lambda ()
+              (highlight-numbers-mode -1))
+            ;; We must append the above *after* `spacemacs/run-prog-mode-hooks'
+            ;; in `matlab-mode-hook', since the former hook enables
+            ;; `highlight-numbers-mode'. Note that
+            ;; `spacemacs/run-prog-mode-hooks' is manually added to
+            ;; `matlab-mode-hook' by Spacemacs since the upstream `matlab-mode'
+            ;; package does not derive `matlab-mode' from `prog-mode' (oddly --
+            ;; IIRC the author refused to do so for compatibility with XEmacs).
+            'append)
+  )
 
 (defun delin/init-move-dup ()
   (use-package move-dup
@@ -126,17 +156,6 @@
            ("C-c c c" . mc/edit-lines)
            ("C-c c a" . mc/edit-beginnings-of-lines)
            ("C-c c e" . mc/edit-en))
-    ))
-
-(defun delin/init-key-chord ()
-  (use-package key-chord
-    :defer t
-    :init
-    (setq key-chord-one-key-delay '0.2
-          key-chord-two-keys-delay '0.1)
-    (spacemacs/set-leader-keys "tk" 'key-chord-mode)
-    :config
-    (key-chord-define-global (kbd ",,") 'avy-goto-word-or-subword-1)
     ))
 
 (defun delin/post-init-smartparens ()
