@@ -53,3 +53,7 @@
                 (lambda ()
                   (interactive)
                   (sublimity-scroll-other--vscroll-effect 20)))
+
+(global-set-key (kbd "s-=") 'spacemacs/scale-up-font)
+(global-set-key (kbd "s--") 'spacemacs/scale-down-font)
+(global-set-key (kbd "s-<backspace>") 'spacemacs/reset-font-size)
