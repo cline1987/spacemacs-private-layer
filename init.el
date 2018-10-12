@@ -47,8 +47,7 @@ values."
      ;; common-lisp
      ;; dash
      emacs-lisp
-     (extra-langs :variables
-                  matlab-mode)
+     extra-langs
      ;; git
      ;; html
      ibuffer
